@@ -39,6 +39,7 @@ As variáveis nas linhas 15-20 são exatamente o que seus nomes sugerem: os dado
 row = ous.readlines()
 ous.readline() #linejumper
 cal = 0 # quantidade de caloria
+
 """
 CÓDIGO INVÁLIDO USADO ANTERIORMENTE E DESCARTADO
 CONTINUA AQUI PARA EVENTUAL CONSULTA
@@ -58,10 +59,28 @@ while x <= len(datas):
         print(row[2])
     x+=1
 """
+
 import csv
-with open('alimentos.csv', mode='r') as cal:
-    reader = csv.reader(cal)
-    """with open('alim.csv', mode='w') as outfile:
-        writer = csv.writer(outfile)"""
-    cal = {rows[0]:rows[2] for rows in reader}
-print(cal["Alimento"])
+with open("alimentos.csv", mode="r") as calref:
+    reader=csv.reader(calref)
+    calref={rows[0]:rows[2] for rows in reader}
+    """calref é dicionário com valores de referência do alimentos.csv"""
+with open("alimentos.csv", mode="r") as protref:
+    reader=csv.reader(protref)
+    protref={rows[0]:rows[3] for rows in reader}
+    """protref é o dicionário com valores de referência do alimentos.csv"""
+with open("alimentos.csv", mode="r") as carbref:
+    reader=csv.reader(carbref)
+    carbref={rows[0]:rows[4] for rows in reader}
+    """carbref é o dicionário com os valores de referência do alimentos.csv"""
+with open("alimentos.csv", mode="r") as gordref:
+    reader=csv.reader(gordref)
+    gordref={rows[0]:rows[5] for rows in reader}
+    """gordref é o dicionário com com os valores de referência do alimentos.csv"""
+with open("alimentos.csv", mode="r") as quant:
+    reader=csv.reader(quant)
+    quant={rows[0]:rows[1] for rows in reader}
+    """quant é o dicionário com as quantidades em gramas dos alimentos em alimentos.csv"""
+calq={x:float(calref[x])/float(quant[x]) for x in calref}
+
+print(calq["ACELGA"])
