@@ -10,7 +10,5 @@ oal = open("alimentos.csv","r", encoding="utf-8") #oal é o arquivo alimentos.cs
 alim = oal.readlines() #alim é variável que contém as linhas de informação de alimentos.csv
 #print(alim)
 ous = open("usuario.csv","r", encoding="utf-8") #ous é o arquivo usuario.csv aberto e apenas isso
-datauser = ous.readlines() #datauser são os dados básicos do usuário como nome, mas ainda não organizados.
-print(datauser)
-
-
+ous.readline()
+datauser = ous.readline().split(",") #datauser são os dados básicos do usuário como nome, mas ainda não organizados.
