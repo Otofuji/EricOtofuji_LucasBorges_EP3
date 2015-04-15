@@ -10,4 +10,4 @@ oal = open("alimentos.csv") #oal é o arquivo alimentos.csv aberto e apenas isso
 alim = oal.readlines #alim é variável que contém as linhas de informação de alimentos.csv
 #print(alim)
 ous = open("usuario.csv") #ous é o arquivo usuario.csv aberto e apenas isso
-datauserous.readline(2)
+datauser = ous.readline(2) #datauser são os dados básicos do usuário como nome, mas ainda não organizados.
