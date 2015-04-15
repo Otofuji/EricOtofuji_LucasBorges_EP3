@@ -5,8 +5,8 @@ Created on Wed Apr 15 09:55:20 2015
 @author: Eric & Lucas
 """
 print("Bem-vindo ao controle de dieta! Manter uma vida saudável é muito importante, e vamos te ajudar a chegar em seus objetivos. Vamos lá?\n")
-oal = open("alimentos.csv","r", encoding="utf-8") #oal é o arquivo alimentos.csv aberto e apenas isso
-alim = oal.readlines() #alim é variável que contém as linhas de informação de alimentos.csv
+#oal = open("alimentos.csv","r", encoding="utf-8") #oal é o arquivo alimentos.csv aberto e apenas isso
+#alim = oal.readlines() #alim é variável que contém as linhas de informação de alimentos.csv
 ous = open("usuario.csv","r", encoding="utf-8") #ous é o arquivo usuario.csv aberto e apenas isso
 ous.readline() #linejumper
 datauser = ous.readline().split(",") #datauser são os dados básicos do usuário como nome, mas ainda não organizados.
@@ -58,3 +58,10 @@ while x <= len(datas):
         print(row[2])
     x+=1
 """
+import csv
+with open('alimentos.csv', mode='r') as cal:
+    reader = csv.reader(cal)
+    """with open('alim.csv', mode='w') as outfile:
+        writer = csv.writer(outfile)"""
+    cal = {rows[0]:rows[2] for rows in reader}
+print(cal["Alimento"])
