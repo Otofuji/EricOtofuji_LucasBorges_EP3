@@ -81,6 +81,8 @@ with open("alimentos.csv", mode="r") as quant:
     reader=csv.reader(quant)
     quant={rows[0]:rows[1] for rows in reader}
     """quant é o dicionário com as quantidades em gramas dos alimentos em alimentos.csv"""
-calq={x:float(calref[x])/float(quant[x]) for x in calref}
+#calq={x:float(calref[x])/float(quant[x]) for x in calref}
 
-print(calq["ACELGA"])
+#print(calq["ACELGA"])
+
+
