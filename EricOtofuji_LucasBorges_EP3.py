@@ -6,6 +6,7 @@ Devs: Eric Otofuji & Lucas Borges
 """
 print("Bem-vindo ao controle de dieta! Manter uma vida saudável é muito importante, e vamos te ajudar a chegar em seus objetivos. Vamos lá?\n") #um texto de boas vindas fofélico
 ous = open("usuario.csv","r", encoding="utf-8") #ous é o arquivo usuario.csv aberto e apenas isso - depois de aberto não vai servir para muita coisa, então não é algo a se preocupar muito.
+leitura=open("usuario.csv","r", encoding="utf-8").readlines() # Abre o arquivo com os dados do usuário
 ous.readline() #linejumper
 datauser = ous.readline().split(",") #datauser são os dados básicos do usuário como nome, mas ainda não organizados. Esta linha também separa a linha em índices em uma lista separada por vírgulas. 
 nome = datauser[0] #variável "nome" é o índice zero (primeira coluna) de usuario.csv. Em suma, é o nome do dito-cujo.
