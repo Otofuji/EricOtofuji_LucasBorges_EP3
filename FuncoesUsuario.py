@@ -9,13 +9,13 @@ Devs: Eric Otofuji & Lucas Borges
 leitura=open("usuario.csv","r", encoding="utf-8").readlines() # Abre o arquivo com os dados do usuário
 
 """ Dados do Usuário"""
-#datauser = leitura[1].split(",")
-#nome = datauser[0] # Lê e retorna o nome do Usuário
-#idade = int(datauser[1]) # Lê e retorna a idade(anos) do Usuário
-#peso = float(datauser[2]) # Lê e retorna o peso(kg) do Usuário
-#sexo = datauser[3].upper().strip() # Lê e retorna o sexo(M ou F) do Usuário
-#altura = float(datauser[4]) # Lê e retorna a altura(m) do Usuário
-#fator = datauser[5].upper().strip() # Lê e retorna o fator do Usuário
+datauser = leitura[1].split(",")
+nome = datauser[0] # Lê e retorna o nome do Usuário
+idade = int(datauser[1]) # Lê e retorna a idade(anos) do Usuário
+peso = float(datauser[2]) # Lê e retorna o peso(kg) do Usuário
+sexo = datauser[3].upper().strip() # Lê e retorna o sexo(M ou F) do Usuário
+altura = float(datauser[4]) # Lê e retorna a altura(m) do Usuário
+fator = datauser[5].upper().strip() # Lê e retorna o fator do Usuário
 
 def CalculaNívelbasal(peso,altura,idade): # Calcula a Taxa de Metabolismo Basal(TMB)                        
     """ 
