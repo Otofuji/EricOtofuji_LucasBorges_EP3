@@ -173,3 +173,26 @@ plt.title("Consumo de Gorduras (g)", color = "yellow")
 plt.bar(range(len(SemanaGorduras)), SemanaGorduras.values(), align='center',color="yellow")
 plt.xticks(range(len(SemanaGorduras)), list(SemanaGorduras.keys()))
 plt.show()
+<<<<<<< HEAD
+=======
+
+print(usuariocarboidratoscsv())
+print(usuariocaloriascsv())
+print(usuarioproteinascsv())
+print(usuariofatcsv())
+#==============================================================================
+# NivelBasal = CalculaNívelbasal(peso,altura,idade)
+# NecessidadeCal = CalculaNecessidadeCal(fator)
+# IMC = CalculaIMC(peso,altura)
+# TIMC = TipoIMC(peso,altura)
+#==============================================================================
+
+
+
+
+
+
+report = open(report.txt, "w")
+report.write("seu obseso")
+report.close()
+>>>>>>> origin/master
