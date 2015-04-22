@@ -97,7 +97,7 @@ SemanaProteinas={}
 SemanaCarboidratos={}
 SemanaGorduras={}
 
-def usuariocarboidratoscsv():
+def usuariocarboidratoscsv(): # Adiciona ao dicionário a quantidade de carboidratos ingeridos em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
         gramas=float(datauser[2])
@@ -109,7 +109,7 @@ def usuariocarboidratoscsv():
             SemanaCarboidratos[data]=float(carbref[comida])*gramas/100
     return SemanaCarboidratos
 
-def usuariocaloriascsv():
+def usuariocaloriascsv(): # Adiciona ao dicionário a quantidade de calorias ingeridas em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
         gramas=float(datauser[2])
@@ -121,7 +121,7 @@ def usuariocaloriascsv():
                 SemanaCalorias[data]=float(calref[comida])*gramas/100
     return SemanaCalorias
 
-def usuarioproteinascsv():
+def usuarioproteinascsv(): # Adiciona ao dicionário a quantidade de proteínas ingeridas em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
         gramas=float(datauser[2])
@@ -133,7 +133,7 @@ def usuarioproteinascsv():
                 SemanaProteinas[data]=float(protref[comida])*gramas/100  
     return SemanaProteinas
 
-def usuariofatcsv():
+def usuariofatcsv(): # Adiciona ao dicionário a quantidade de gorduras ingeridas em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
         gramas=float(datauser[2])
@@ -151,48 +151,25 @@ def usuariofatcsv():
 
 print("Sua necessidade calórica diária é:", round(CalculaNecessidadeCal(),2))
 usuariocaloriascsv()
-plt.title("Consumo de Calorias",color="blue")
+plt.title("Consumo de Calorias",color="blue") # Gera o gráfico do consumo de calorias por dia
 plt.bar(range(len(SemanaCalorias)), SemanaCalorias.values(), align='center',color="blue")
 plt.xticks(range(len(SemanaCalorias)), list(SemanaCalorias.keys()))
 plt.show()
 
 usuariocarboidratoscsv()
-plt.title("Consumo de Carboidratos",color="black")
+plt.title("Consumo de Carboidratos",color="black") # Gera o gráfico do consumo de carboidratos por dia
 plt.bar(range(len(SemanaCarboidratos)), SemanaCarboidratos.values(), align='center',color="black")
 plt.xticks(range(len(SemanaCarboidratos)), list(SemanaCarboidratos.keys()))
 plt.show()
 
 usuarioproteinascsv()
-plt.title("Consumo de Proteínas (g)",color="red")
+plt.title("Consumo de Proteínas (g)",color="red") # Gera o gráfico do consumo de proteinas por dia
 plt.bar(range(len(SemanaProteinas)), SemanaProteinas.values(), align='center',color="red")
 plt.xticks(range(len(SemanaProteinas)), list(SemanaProteinas.keys()))
 plt.show()
 
 usuariofatcsv()
-plt.title("Consumo de Gorduras (g)", color = "yellow")
+plt.title("Consumo de Gorduras (g)", color = "yellow") # Gera o gráfico do consumo de gorduras por dia
 plt.bar(range(len(SemanaGorduras)), SemanaGorduras.values(), align='center',color="yellow")
 plt.xticks(range(len(SemanaGorduras)), list(SemanaGorduras.keys()))
 plt.show()
-<<<<<<< HEAD
-=======
-
-print(usuariocarboidratoscsv())
-print(usuariocaloriascsv())
-print(usuarioproteinascsv())
-print(usuariofatcsv())
-#==============================================================================
-# NivelBasal = CalculaNívelbasal(peso,altura,idade)
-# NecessidadeCal = CalculaNecessidadeCal(fator)
-# IMC = CalculaIMC(peso,altura)
-# TIMC = TipoIMC(peso,altura)
-#==============================================================================
-
-
-
-
-
-
-report = open(report.txt, "w")
-report.write("seu obseso")
-report.close()
->>>>>>> origin/master
