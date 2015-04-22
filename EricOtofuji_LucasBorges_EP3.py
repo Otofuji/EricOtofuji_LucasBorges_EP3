@@ -178,6 +178,30 @@ def graphgord(gord,datas):
     plt.ylabel("Dias")
     plt.show()
 
+usuariocaloriascsv()
+plt.title("Consumo de Calorias\n Teste",color="b")
+plt.bar(range(len(SemanaCalorias)), SemanaCalorias.values(), align='center')
+plt.xticks(range(len(SemanaCalorias)), list(SemanaCalorias.keys()))
+plt.show()
+
+usuariocarboidratoscsv()
+plt.title("Consumo de Carboidratos",color="black")
+plt.bar(range(len(SemanaCarboidratos)), SemanaCarboidratos.values(), align='center',color="black")
+plt.xticks(range(len(SemanaCarboidratos)), list(SemanaCarboidratos.keys()))
+plt.show()
+
+usuarioproteinascsv()
+plt.title("Consumo de Proteínas (g)",color="red")
+plt.bar(range(len(SemanaCarboidratos)), SemanaCarboidratos.values(), align='center',color="red")
+plt.xticks(range(len(SemanaCarboidratos)), list(SemanaCarboidratos.keys()))
+plt.show()
+
+usuariofatcsv()
+plt.title("Consumo de Gorduras (g)", color = "yellow")
+plt.bar(range(len(SemanaGorduras)), SemanaGorduras.values(), align='center',color="yellow")
+plt.xticks(range(len(SemanaGorduras)), list(SemanaGorduras.keys()))
+plt.show()
+
 print(usuariocarboidratoscsv())
 print(usuariocaloriascsv())
 print(usuarioproteinascsv())
