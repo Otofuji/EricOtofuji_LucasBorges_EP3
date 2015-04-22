@@ -14,7 +14,7 @@ idade = int(datauser[1]) #variável "idade" éo índice 1 (segunda coluna) de us
 peso = int(datauser[2]) #variável "peso" é o índice 2 (terceira coluna) de usuario.csv. Em suma, é o peso da criatura.
 sexo = datauser[3] #variável "sexo" é o índice 3 (quarta coluna) de usuario.csv. Em suma, é o sexo da pessoa.
 altura = float(datauser[4]) #variável "altura" é o índice 4 (quinta coluna) de usuario.csv. Em suma, é a altura do indivíduo.
-fator = datauser[5] ##variável "fator" é o índice 5 (sexta coluna) de usuario.csv. Em suma, é o fator de atividade física (o quanto se exercita) do usuário.
+fator = datauser[5].upper() ##variável "fator" é o índice 5 (sexta coluna) de usuario.csv. Em suma, é o fator de atividade física (o quanto se exercita) do usuário.
 ous.readline() #linejumper
 row = ous.readlines() #lê todas as linhas do alimentos.csv daí pra baixo.
 cal = 0 #variável com quantidade de caloria em kcal
@@ -46,23 +46,24 @@ def CalculaNívelbasal(peso,altura,idade): # Calcula a Taxa de Metabolismo Basal
         TMB= 447.6+(9.2*peso)+(3.1*altura)-(4.3*idade)    
     return TMB
 
-def CalculaNecessidadeCal(fator): # Calcula a Necessidade calórica diária (kcal)    
+def CalculaNecessidadeCal(): # Calcula a Necessidade calórica diária (kcal)    
     """ 
-    >>> round(CalculaNecessidadeCal(fator),2) # Round seleciona quantas casas depois da virgula você quer exibir
-    2833.42
-    """
+    >>> round(CalculaNecessidadeCal(),2) # Round seleciona quantas casas depois da virgula você quer exibir
+    3120.86
+    """ 
     if fator == "MÍNIMO":  # No caso de fator MÍNIMO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.2
-    if fator == "BAIXO":    # No caso de fator BAIXO
+    elif fator == "BAIXO":    # No caso de fator BAIXO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.375
-    if fator == "MÉDIO":    # No caso de fator MÉDIO
+    elif fator == "MÉDIO":    # No caso de fator MÉDIO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.55
-    if fator == "ALTO":    # No caso de fator ALTO
+    elif fator == "ALTO":    # No caso de fator ALTO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.725
-    if fator == "MUITO ALTO":    # No caso de fator MUITO ALTO
+    else:    # No caso de fator MUITO ALTO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.9        
-    return TaxaCal 
-    print(CalculaNecessidadeCal(fator))
+    return TaxaCal  
+print(CalculaNecessidadeCal())
+    
 def CalculaIMC(peso,altura): # Calcula o Índice de Massa Corporal (IMC)   
     """ 
     >>> round(CalculaIMC(50,1.5),2) # Round seleciona quantas casas depois da virgula você quer exibir
@@ -103,12 +104,12 @@ def usuariocarboidratoscsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaCarboidratos[data] = carbref[comida]*gramas
+        SemanaCarboidratos[data] = float(carbref[comida])*gramas
         for data in SemanaCarboidratos:
             if data in SemanaCarboidratos:
-                SemanaCarboidratos[data]+=carbref[comida]*gramas
+                SemanaCarboidratos[data]+=float(carbref[comida])*gramas
             else:
-                 SemanaCarboidratos[data]+=carbref[comida]*gramas
+                 SemanaCarboidratos[data]+=float(carbref[comida])*gramas
     return SemanaCarboidratos
 
 def usuariocaloriascsv():
@@ -117,12 +118,12 @@ def usuariocaloriascsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaCalorias[data]=calref[comida]*gramas
+        SemanaCalorias[data]=float(calref[comida])*gramas
         for data in SemanaCalorias:
             if data in SemanaCalorias:
-                SemanaCalorias[data]+= calref[comida]*gramas
+                SemanaCalorias[data]+= float(calref[comida])*gramas
             else:
-                SemanaCalorias[data]=calref[comida]*gramas
+                SemanaCalorias[data]=float(calref[comida])*gramas
     return SemanaCalorias
 
 def usuarioproteinascsv():
@@ -131,12 +132,12 @@ def usuarioproteinascsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaProteinas[data]=protref[comida]*gramas
+        SemanaProteinas[data]=float(protref[comida])*gramas
         for data in SemanaProteinas:
             if data in SemanaProteinas:
-                SemanaProteinas[data]+=protref[comida]*gramas
+                SemanaProteinas[data]+=float(protref[comida])*gramas
             else:
-                SemanaProteinas[data]=protref[comida]*gramas  
+                SemanaProteinas[data]=float(protref[comida])*gramas  
     return SemanaProteinas
 
 def usuariofatcsv():
@@ -145,12 +146,12 @@ def usuariofatcsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaGorduras[data]=gordref[comida]*gramas
+        SemanaGorduras[data]=float(gordref[comida])*gramas
         for data in SemanaGorduras:
             if data in SemanaGorduras:
-                SemanaGorduras[data]+=gordref[comida]*gramas
+                SemanaGorduras[data]+=float(gordref[comida])*gramas
             else:
-                SemanaGorduras[data]=gordref[comida]*gramas  
+                SemanaGorduras[data]=float(gordref[comida])*gramas  
     return SemanaGorduras 
     
 if __name__ =='__main__':	
@@ -187,7 +188,13 @@ def graphgord(gord,datas):
     plt.ylabel("Dias")
     plt.show()
 
-NivelBasal = CalculaNívelbasal(peso,altura,idade)
-NecessidadeCal = CalculaNecessidadeCal(fator)
-IMC = CalculaIMC(peso,altura)
-TIMC = TipoIMC(peso,altura)
+print(usuariocarboidratoscsv())
+print(usuariocaloriascsv())
+print(usuarioproteinascsv())
+print(usuariofatcsv())
+#==============================================================================
+# NivelBasal = CalculaNívelbasal(peso,altura,idade)
+# NecessidadeCal = CalculaNecessidadeCal(fator)
+# IMC = CalculaIMC(peso,altura)
+# TIMC = TipoIMC(peso,altura)
+#==============================================================================

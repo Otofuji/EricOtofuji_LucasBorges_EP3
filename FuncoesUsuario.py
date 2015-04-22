@@ -44,7 +44,7 @@ def CalculaNecessidadeCal(fator): # Calcula a Necessidade calórica diária (kca
     if fator == "MUITO ALTO":    # No caso de fator MUITO ALTO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.9        
     return TaxaCal 
-print(CalculaNecessidadeCal(fator))
+
 def CalculaIMC(peso,altura): # Calcula o Índice de Massa Corporal (IMC)   
     """ 
     >>> round(CalculaIMC(50,1.5),2) # Round seleciona quantas casas depois da virgula você quer exibir
@@ -134,6 +134,7 @@ def usuariofatcsv():
             else:
                 SemanaGorduras[data]=gordref[comida]*gramas  
     return SemanaGorduras 
+
     
 if __name__ =='__main__':	
     import doctest
