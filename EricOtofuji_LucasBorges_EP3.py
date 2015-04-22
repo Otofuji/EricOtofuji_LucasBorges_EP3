@@ -22,6 +22,7 @@ prot = 0 #variável com quantidade de proteínas
 carb = 0 #variável com a quantidade de carboidratos
 gord = 0 #variável com a quantidade de gorduras
 import csv #importa a biblioteca csv, que será muito útil para as funções que usaremos para criar os dicionários com o banco de dados das informações nutricionais usando somente três linhas.
+import matplotlib.pyplot as plt
 with open("alimentos.csv", mode="r") as calref: #aqui estamos abrindo alimentos.csv para extrairmos os valores em dicionário de calorias e para tanto criamos a variável calref (referência de calorias)
     reader=csv.reader(calref) #aqui usamos a função reader da biblioteca csv para ler o arquivo csv como csv e fazer o Python entender isso
     calref={rows[0]:rows[2] for rows in reader} #aqui criamos dicionário calref do csv lido usando a coluna [0] como chaves e a coluna [2] como valores, que é a coluna que tem valores de calorias que é o que queremos aqui.
@@ -103,12 +104,10 @@ def usuariocarboidratoscsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaCarboidratos[data] = float(carbref[comida])*gramas/100
-        for data in SemanaCarboidratos:
-            if data in SemanaCarboidratos:
-                SemanaCarboidratos[data]+=float(carbref[comida])*gramas/100
-            else:
-                 SemanaCarboidratos[data]+=float(carbref[comida])*gramas/100
+        if data in SemanaCarboidratos:
+            SemanaCarboidratos[data]+=float(carbref[comida])*gramas/100
+        else:
+            SemanaCarboidratos[data]=float(carbref[comida])*gramas/100
     return SemanaCarboidratos
 
 def usuariocaloriascsv():
@@ -117,11 +116,9 @@ def usuariocaloriascsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaCalorias[data]=float(calref[comida])*gramas/100
-        for data in SemanaCalorias:
-            if data in SemanaCalorias:
+        if data in SemanaCalorias:
                 SemanaCalorias[data]+= float(calref[comida])*gramas/100
-            else:
+        else:
                 SemanaCalorias[data]=float(calref[comida])*gramas/100
     return SemanaCalorias
 
@@ -131,11 +128,9 @@ def usuarioproteinascsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaProteinas[data]=float(protref[comida])*gramas/100
-        for data in SemanaProteinas:
-            if data in SemanaProteinas:
+        if data in SemanaProteinas:
                 SemanaProteinas[data]+=float(protref[comida])*gramas/100
-            else:
+        else:
                 SemanaProteinas[data]=float(protref[comida])*gramas/100  
     return SemanaProteinas
 
@@ -145,19 +140,15 @@ def usuariofatcsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaGorduras[data]=float(gordref[comida])*gramas/100
-        for data in SemanaGorduras:
-            if data in SemanaGorduras:
+        if data in SemanaGorduras:
                 SemanaGorduras[data]+=float(gordref[comida])*gramas/100
-            else:
+        else:
                 SemanaGorduras[data]=float(gordref[comida])*gramas/100  
     return SemanaGorduras 
     
-if __name__ =='__main__':	
-    import doctest
-    doctest.testmod(verbose=True)
-    
-import matplotlib.pyplot as plt
+#if __name__ =='__main__':	
+    #import doctest
+    #doctest.testmod(verbose=True)    
 
 def graphcal(cal,datas):
     plt.plot(cal,datas)
