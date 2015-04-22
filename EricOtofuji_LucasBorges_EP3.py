@@ -79,17 +79,14 @@ def TipoIMC(peso,altura): # Define qual é o seu tipo de IMC
     2
     """    
     if CalculaIMC(peso,altura)<18.5: # Caso esteja abaixo do peso
-        print("Você está abaixo do peso")
-        return 1
+        return "Você está abaixo do peso"        
     elif 18.5<=CalculaIMC(peso,altura)<25: # Caso esteja no peso ideal
-        print("Você está no peso ideal")
-        return 2
+        return "Você está no peso ideal"
     elif 25<=CalculaIMC(peso,altura)<30: # Caso esteja um pouco acima do peso
-        print("Você está um pouco acima do peso")
-        return 3
+        return"Você está um pouco acima do peso"
     else:
-        print("Você está muito acima do peso") # Caso esteja muito acima do peso
-        return 4
+        return"Você está muito acima do peso" # Caso esteja muito acima do peso
+
          
 """ Dicionários com a quantidade de cada alimento ingeridos"""    
 SemanaCalorias={}
@@ -173,3 +170,13 @@ plt.title("Consumo de Gorduras (g)", color = "yellow") # Gera o gráfico do cons
 plt.bar(range(len(SemanaGorduras)), SemanaGorduras.values(), align='center',color="yellow")
 plt.xticks(range(len(SemanaGorduras)), list(SemanaGorduras.keys()))
 plt.show()
+
+a = round(CalculaIMC(peso,altura),2)
+a1 = str(a)
+arquivo=open('report.txt', 'w')
+arquivo.write("O seu Índice de Massa Corporal é: ")
+arquivo.write(a1)
+arquivo.write("\n")
+arquivo.write(TipoIMC(peso,altura))
+arquivo.close()
+
