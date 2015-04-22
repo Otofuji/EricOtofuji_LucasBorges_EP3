@@ -61,7 +61,7 @@ def CalculaNecessidadeCal(fator): # Calcula a Necessidade calórica diária (kca
     if fator == "MUITO ALTO":    # No caso de fator MUITO ALTO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.9        
     return TaxaCal 
-print(CalculaNecessidadeCal(fator))
+    print(CalculaNecessidadeCal(fator))
 def CalculaIMC(peso,altura): # Calcula o Índice de Massa Corporal (IMC)   
     """ 
     >>> round(CalculaIMC(50,1.5),2) # Round seleciona quantas casas depois da virgula você quer exibir
@@ -188,3 +188,5 @@ def graphgord(gord,datas):
 
 NivelBasal = CalculaNívelbasal(peso,altura,idade)
 NecessidadeCal = CalculaNecessidadeCal(fator)
+IMC = CalculaIMC(peso,altura)
+TIMC = TipoIMC(peso,altura)
