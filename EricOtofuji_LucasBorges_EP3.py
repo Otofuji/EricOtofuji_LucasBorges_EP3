@@ -33,3 +33,5 @@ with open("alimentos.csv", mode="r") as carbref: #análogo ao calref mas agora c
 with open("alimentos.csv", mode="r") as gordref: #análogo ao calref mas agora com gordreg (referência de gorduras).
     reader=csv.reader(gordref)
     gordref={rows[0]:rows[5] for rows in reader}
+from FuncoesUsuario.py import * #importa módulos de funções do usuário
+from graph.py import * #importa módulos de gráficos

@@ -2,7 +2,7 @@
 """
 Arquivo de módulos de gráfico
 EP3 - Design de Software - 2015 - Insper, instituto de ensino e pesquisa
-@author: Eric
+Devs: Eric Otofuji & Lucas Borges
 """
 
 import matplotlib.pyplot as plt
