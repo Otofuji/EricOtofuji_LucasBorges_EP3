@@ -92,7 +92,6 @@ def TipoIMC(peso,altura): # Define qual é o seu tipo de IMC
         return 4
          
 """ Dicionários com a quantidade de cada alimento ingeridos"""    
-SemanaGramas={}
 SemanaCalorias={}
 SemanaProteinas={}
 SemanaCarboidratos={}
@@ -104,12 +103,12 @@ def usuariocarboidratoscsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaCarboidratos[data] = float(carbref[comida])*gramas
+        SemanaCarboidratos[data] = float(carbref[comida])*gramas/100
         for data in SemanaCarboidratos:
             if data in SemanaCarboidratos:
-                SemanaCarboidratos[data]+=float(carbref[comida])*gramas
+                SemanaCarboidratos[data]+=float(carbref[comida])*gramas/100
             else:
-                 SemanaCarboidratos[data]+=float(carbref[comida])*gramas
+                 SemanaCarboidratos[data]+=float(carbref[comida])*gramas/100
     return SemanaCarboidratos
 
 def usuariocaloriascsv():
@@ -118,12 +117,12 @@ def usuariocaloriascsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaCalorias[data]=float(calref[comida])*gramas
+        SemanaCalorias[data]=float(calref[comida])*gramas/100
         for data in SemanaCalorias:
             if data in SemanaCalorias:
-                SemanaCalorias[data]+= float(calref[comida])*gramas
+                SemanaCalorias[data]+= float(calref[comida])*gramas/100
             else:
-                SemanaCalorias[data]=float(calref[comida])*gramas
+                SemanaCalorias[data]=float(calref[comida])*gramas/100
     return SemanaCalorias
 
 def usuarioproteinascsv():
@@ -132,12 +131,12 @@ def usuarioproteinascsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaProteinas[data]=float(protref[comida])*gramas
+        SemanaProteinas[data]=float(protref[comida])*gramas/100
         for data in SemanaProteinas:
             if data in SemanaProteinas:
-                SemanaProteinas[data]+=float(protref[comida])*gramas
+                SemanaProteinas[data]+=float(protref[comida])*gramas/100
             else:
-                SemanaProteinas[data]=float(protref[comida])*gramas  
+                SemanaProteinas[data]=float(protref[comida])*gramas/100  
     return SemanaProteinas
 
 def usuariofatcsv():
@@ -146,12 +145,12 @@ def usuariofatcsv():
         gramas=float(datauser[2])
         comida=datauser[1]
         data=datauser[0]
-        SemanaGorduras[data]=float(gordref[comida])*gramas
+        SemanaGorduras[data]=float(gordref[comida])*gramas/100
         for data in SemanaGorduras:
             if data in SemanaGorduras:
-                SemanaGorduras[data]+=float(gordref[comida])*gramas
+                SemanaGorduras[data]+=float(gordref[comida])*gramas/100
             else:
-                SemanaGorduras[data]=float(gordref[comida])*gramas  
+                SemanaGorduras[data]=float(gordref[comida])*gramas/100  
     return SemanaGorduras 
     
 if __name__ =='__main__':	
