@@ -63,7 +63,6 @@ def CalculaNecessidadeCal(): # Calcula a Necessidade calórica diária (kcal)
     else:    # No caso de fator MUITO ALTO
         TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.9        
     return TaxaCal  
-print(CalculaNecessidadeCal())
     
 def CalculaIMC(peso,altura): # Calcula o Índice de Massa Corporal (IMC)   
     """ 
@@ -150,37 +149,10 @@ def usuariofatcsv():
     #import doctest
     #doctest.testmod(verbose=True)    
 
-def graphcal(cal,datas):
-    plt.plot(cal,datas)
-    plt.title("Seu consumo calórico")
-    plt.xlabel("Calorias ingeridas (kcal)")
-    plt.ylabel("Dias")
-    plt.show()
-    
-def graphprot(prot,datas):
-    plt.plot(prot,datas)
-    plt.title("Seu consumo de proteínas")
-    plt.xlabel("Proteínas ingeridas")
-    plt.ylabel("Dias")
-    plt.show()
-    
-def graphcarb(carb,datas):
-    plt.plot(carb,datas)
-    plt.title("Seu consumo de carboidratos")
-    plt.xlabel("Carboidratos ingeridos")
-    plt.ylabel("Dias")
-    plt.show()
-    
-def graphgord(gord,datas):
-    plt.plot(gord,datas)
-    plt.title("Seu consumo de gorduras")
-    plt.xlabel("Gorduras ingeridas")
-    plt.ylabel("Dias")
-    plt.show()
-
+print("Sua necessidade calórica diária é:", round(CalculaNecessidadeCal(),2))
 usuariocaloriascsv()
-plt.title("Consumo de Calorias\n Teste",color="b")
-plt.bar(range(len(SemanaCalorias)), SemanaCalorias.values(), align='center')
+plt.title("Consumo de Calorias",color="blue")
+plt.bar(range(len(SemanaCalorias)), SemanaCalorias.values(), align='center',color="blue")
 plt.xticks(range(len(SemanaCalorias)), list(SemanaCalorias.keys()))
 plt.show()
 
@@ -192,8 +164,8 @@ plt.show()
 
 usuarioproteinascsv()
 plt.title("Consumo de Proteínas (g)",color="red")
-plt.bar(range(len(SemanaCarboidratos)), SemanaCarboidratos.values(), align='center',color="red")
-plt.xticks(range(len(SemanaCarboidratos)), list(SemanaCarboidratos.keys()))
+plt.bar(range(len(SemanaProteinas)), SemanaProteinas.values(), align='center',color="red")
+plt.xticks(range(len(SemanaProteinas)), list(SemanaProteinas.keys()))
 plt.show()
 
 usuariofatcsv()
@@ -201,14 +173,3 @@ plt.title("Consumo de Gorduras (g)", color = "yellow")
 plt.bar(range(len(SemanaGorduras)), SemanaGorduras.values(), align='center',color="yellow")
 plt.xticks(range(len(SemanaGorduras)), list(SemanaGorduras.keys()))
 plt.show()
-
-print(usuariocarboidratoscsv())
-print(usuariocaloriascsv())
-print(usuarioproteinascsv())
-print(usuariofatcsv())
-#==============================================================================
-# NivelBasal = CalculaNívelbasal(peso,altura,idade)
-# NecessidadeCal = CalculaNecessidadeCal(fator)
-# IMC = CalculaIMC(peso,altura)
-# TIMC = TipoIMC(peso,altura)
-#==============================================================================
