@@ -212,3 +212,12 @@ print(usuariofatcsv())
 # IMC = CalculaIMC(peso,altura)
 # TIMC = TipoIMC(peso,altura)
 #==============================================================================
+
+
+
+
+
+
+report = open(report.txt, "w")
+report.write("seu obseso")
+report.close()
