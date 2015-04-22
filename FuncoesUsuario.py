@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Arquivo mestre do programa de controle de dieta
+"""
+Arquivo de módulos do programa
 EP3 - Design de Software - 2015 - Insper, instituto de ensino e pesquisa
 Devs: Eric Otofuji & Lucas Borges
-Abril/2015"""
+"""
 
 
 leitura=open("usuario.csv","r", encoding="utf-8").readlines() # Abre o arquivo com os dados do usuário

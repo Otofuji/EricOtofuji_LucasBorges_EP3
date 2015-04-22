@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Apr 16 09:46:44 2015
-
+Arquivo de módulos de gráfico
+EP3 - Design de Software - 2015 - Insper, instituto de ensino e pesquisa
 @author: Eric
 """
 
@@ -34,4 +34,3 @@ def graphgord(gord,datas):
     plt.xlabel("Gorduras ingeridas")
     plt.ylabel("Dias")
     plt.show()
-

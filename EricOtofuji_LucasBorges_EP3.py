@@ -3,7 +3,6 @@
 Arquivo mestre do programa de controle de dieta
 EP3 - Design de Software - 2015 - Insper, instituto de ensino e pesquisa
 Devs: Eric Otofuji & Lucas Borges
-Abril/2015
 """
 print("Bem-vindo ao controle de dieta! Manter uma vida saudável é muito importante, e vamos te ajudar a chegar em seus objetivos. Vamos lá?\n") #um texto de boas vindas fofélico
 ous = open("usuario.csv","r", encoding="utf-8") #ous é o arquivo usuario.csv aberto e apenas isso - depois de aberto não vai servir para muita coisa, então não é algo a se preocupar muito.
