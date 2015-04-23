@@ -35,43 +35,39 @@ with open("alimentos.csv", mode="r") as carbref: #análogo ao calref mas agora c
 with open("alimentos.csv", mode="r") as gordref: #análogo ao calref mas agora com gordreg (referência de gorduras).
     reader=csv.reader(gordref)
     gordref={rows[0]:rows[5] for rows in reader}
-
 def CalculaNívelbasal(peso,altura,idade): # Calcula a Taxa de Metabolismo Basal(TMB)                        
     """ 
     >>> round(CalculaNívelbasal(65,1.75,20),2) # Round seleciona quantas casas depois da virgula você quer exibir
     1685.36
     """    
     if sexo == "M": # No caso de sexo masculino
-        TMB= 88.36+(13.4*peso)+(4.8*altura*100)-(5.7*idade)
+        TMB= 88.36+(13.4*peso)+(4.8*altura*100)-(5.7*idade) #calculaTMB
     elif sexo == "F": # No caso de sexo feminino
-        TMB= 447.6+(9.2*peso)+(3.1*altura)-(4.3*idade)    
+        TMB= 447.6+(9.2*peso)+(3.1*altura)-(4.3*idade) #calculaTMB
     return TMB
-
 def CalculaNecessidadeCal(): # Calcula a Necessidade calórica diária (kcal)    
     """ 
     >>> round(CalculaNecessidadeCal(),2) # Round seleciona quantas casas depois da virgula você quer exibir
     3120.86
     """ 
     if fator == "MÍNIMO":  # No caso de fator MÍNIMO
-        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.2
+        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.2 #calculaTaxaCal
     elif fator == "BAIXO":    # No caso de fator BAIXO
-        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.375
+        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.375 #calculaTaxaCal
     elif fator == "MÉDIO":    # No caso de fator MÉDIO
-        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.55
+        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.55 #calculaTaxaCal
     elif fator == "ALTO":    # No caso de fator ALTO
-        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.725
+        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.725 #calculaTaxaCal
     else:    # No caso de fator MUITO ALTO
-        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.9        
+        TaxaCal = CalculaNívelbasal(peso,altura,idade)*1.9 #calculaTaxaCal
     return TaxaCal  
-    
 def CalculaIMC(peso,altura): # Calcula o Índice de Massa Corporal (IMC)   
     """ 
     >>> round(CalculaIMC(50,1.5),2) # Round seleciona quantas casas depois da virgula você quer exibir
     22.22
     """        
-    IMC= (peso)/(altura)**2  
+    IMC= (peso)/(altura)**2  #calculaIMC
     return IMC   
-
 def TipoIMC(peso,altura): # Define qual é o seu tipo de IMC
     """ 
     >>> round(TipoIMC(80,1.8),2) # Round seleciona quantas casas depois da virgula você quer exibir
@@ -86,14 +82,11 @@ def TipoIMC(peso,altura): # Define qual é o seu tipo de IMC
         return"Você está um pouco acima do peso"
     else:
         return"Você está muito acima do peso" # Caso esteja muito acima do peso
-
-         
 """ Dicionários com a quantidade de cada alimento ingeridos"""    
 SemanaCalorias={}
 SemanaProteinas={}
 SemanaCarboidratos={}
 SemanaGorduras={}
-
 def usuariocarboidratoscsv(): # Adiciona ao dicionário a quantidade de carboidratos ingeridos em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
@@ -105,7 +98,6 @@ def usuariocarboidratoscsv(): # Adiciona ao dicionário a quantidade de carboidr
         else:
             SemanaCarboidratos[data]=float(carbref[comida])*gramas/100
     return SemanaCarboidratos
-
 def usuariocaloriascsv(): # Adiciona ao dicionário a quantidade de calorias ingeridas em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
@@ -117,7 +109,6 @@ def usuariocaloriascsv(): # Adiciona ao dicionário a quantidade de calorias ing
         else:
                 SemanaCalorias[data]=float(calref[comida])*gramas/100
     return SemanaCalorias
-
 def usuarioproteinascsv(): # Adiciona ao dicionário a quantidade de proteínas ingeridas em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
@@ -129,7 +120,6 @@ def usuarioproteinascsv(): # Adiciona ao dicionário a quantidade de proteínas 
         else:
                 SemanaProteinas[data]=float(protref[comida])*gramas/100  
     return SemanaProteinas
-
 def usuariofatcsv(): # Adiciona ao dicionário a quantidade de gorduras ingeridas em cada dia
     for linha in leitura[3:]:
         datauser = linha.strip().split(',')
@@ -141,36 +131,28 @@ def usuariofatcsv(): # Adiciona ao dicionário a quantidade de gorduras ingerida
         else:
                 SemanaGorduras[data]=float(gordref[comida])*gramas/100  
     return SemanaGorduras 
-    
-#if __name__ =='__main__':	
-    #import doctest
-    #doctest.testmod(verbose=True)    
-
 print("Sua necessidade calórica diária é:", round(CalculaNecessidadeCal(),2))
 usuariocaloriascsv()
 plt.title("Consumo de Calorias",color="blue") # Gera o gráfico do consumo de calorias por dia
 plt.bar(range(len(SemanaCalorias)), SemanaCalorias.values(), align='center',color="blue")
 plt.xticks(range(len(SemanaCalorias)), list(SemanaCalorias.keys()))
 plt.show()
-
 usuariocarboidratoscsv()
 plt.title("Consumo de Carboidratos",color="black") # Gera o gráfico do consumo de carboidratos por dia
 plt.bar(range(len(SemanaCarboidratos)), SemanaCarboidratos.values(), align='center',color="black")
 plt.xticks(range(len(SemanaCarboidratos)), list(SemanaCarboidratos.keys()))
 plt.show()
-
 usuarioproteinascsv()
 plt.title("Consumo de Proteínas (g)",color="red") # Gera o gráfico do consumo de proteinas por dia
 plt.bar(range(len(SemanaProteinas)), SemanaProteinas.values(), align='center',color="red")
 plt.xticks(range(len(SemanaProteinas)), list(SemanaProteinas.keys()))
 plt.show()
-
 usuariofatcsv()
 plt.title("Consumo de Gorduras (g)", color = "yellow") # Gera o gráfico do consumo de gorduras por dia
 plt.bar(range(len(SemanaGorduras)), SemanaGorduras.values(), align='center',color="yellow")
 plt.xticks(range(len(SemanaGorduras)), list(SemanaGorduras.keys()))
 plt.show()
-
+"""Gera relatório"""
 a = round(CalculaIMC(peso,altura),2)
 a1 = str(a)
 arquivo=open('report.txt', 'w')
@@ -179,4 +161,3 @@ arquivo.write(a1)
 arquivo.write("\n")
 arquivo.write(TipoIMC(peso,altura))
 arquivo.close()
-
